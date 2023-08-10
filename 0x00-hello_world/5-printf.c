@@ -1,12 +1,15 @@
 #include <stdio.h>
 
+/**
+ * main - this is the main function
+ *
+ * printf - this is the funtion used to print atatement
+ *
+ * Return: always 0, and used to terminate main funtion of a program
+ */
+
 int main(void)
-/* Main - this is the main function used as in this case void was the fuction used */
 {
-
-/* Printf - funtion used to print input instead of puts*/
-	printf("with proper grammar, but the outcome is a piece of art,\n");
+	printf("with proper grammar, but the outcome is a piece of art.\n");
 	return (0);
-/* Return: Used to return to 0 and terminate program*/
-
 }
