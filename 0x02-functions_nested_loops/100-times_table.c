@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * print_time_table - function prototype for void
+ * print_times_table - function prototype for void
  *
  * @n: integer used to declare variable int n
  *
