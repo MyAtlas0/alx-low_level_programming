@@ -10,7 +10,7 @@
 
 int main(void)
 {
-	int n = 50;
+	int n = 98;
 	int i;
 	unsigned long int fib_1 = 1, fib_2 = 2;
 	unsigned long int sum;
@@ -24,7 +24,7 @@ int main(void)
 		fib_1 = fib_2;
 		fib_2 = sum;
 
-		if (i != 49)
+		if (i != 97)
 		{
 			printf(", ");
 		}
