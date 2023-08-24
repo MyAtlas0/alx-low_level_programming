@@ -9,21 +9,26 @@
  *
  * @s2: variable to declare second string
  *
- * Return: returns value of s1 - s2 if less equals or greater than 0
+ * Return: returns value of s1 < s2 if less equals or greater than 0
  */
 
 int _strcmp(char *s1, char *s2)
 {
-	int cmp = *s1 - *s2;
+	int n;
 
-	while (*s1 != '\0' && *s2 != '\0')
+	for (n = 0; s1[n] != '\0' || s2[n] != '\0'; n++)
 	{
-		if (cmp != 0)
+		if (s1[n] != s2[n])
 		{
-			return (cmp);
+			if (s1[n] < s2[n])
+			{
+				return (s1[n] - s2[n]);
+			}
+			else if (s1[n] > s2[n])
+			{
+				return (s1[n] - s2[n]);
+			}
 		}
-		s1++;
-		s2++;
 	}
-	return (cmp);
+	return (0);
 }
