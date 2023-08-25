@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * *rot13 - prototype function for encoding strings
@@ -13,8 +14,8 @@
 char *rot13(char *str)
 {
 	int n, i;
-	char original[] = "abcdefghijklmnopqrstuvxsyzABCDEFGHIJKLMOPQRSTUVWXYZ";
-	char rotate[] = "nopqrstuvwxyzabcdefghikflmNOPQRSTUVWXYZBCDEFGHIJKLM";
+	char original[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char rotate[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 
 	for (n = 0; str[n] != '\0'; n++)
 	{
@@ -27,5 +28,6 @@ char *rot13(char *str)
 			}
 		}
 	}
+
 	return (str);
 }
