@@ -9,7 +9,7 @@
 int main(void)
 {
 	int max = 4000000;
-	int fib_1 = 1, fib_2 = 2;
+	int fib_1 = 0, fib_2 = 1;
 	int i;
 	int sum;
 

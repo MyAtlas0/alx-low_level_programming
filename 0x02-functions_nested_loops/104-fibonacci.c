@@ -12,11 +12,11 @@ int main(void)
 {
 	int n = 98;
 	int i;
-	unsigned long int fib_1 = 1, fib_2 = 2;
+	unsigned long int fib_1 = 0, fib_2 = 1;
 	unsigned long int sum;
 
 	printf("%lu, ", fib_1);
-	for (i = 1; i < n; i++)
+	for (i = 0; i < n; i++)
 	{
 		printf("%lu", fib_2);
 		sum = fib_1 + fib_2;
