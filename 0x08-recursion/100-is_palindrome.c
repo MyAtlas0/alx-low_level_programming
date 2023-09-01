@@ -2,28 +2,47 @@
 #include <stdio.h>
 
 /**
- * is_palindrome - Prototype function to check if string is empty
+ * check_string - helper function to check  if string is empty
  *
- * condition - iterates through to check if string empty or not
+ * condition - checks if start and end are equal else return 0
+ *
+ * @s: variable for sting inputs
+ *
+ * @start: variable for the start of the string index
+ *
+ * @end: variable for the end of the string index
+ *
+ * Return: returns 1 if sub_string empty else 0
+ */
+
+int check_string(char *s, int start, int end)
+{
+	if (start >= end)
+	{
+		return (1);
+	}
+	else if (s[start] != s[end])
+	{
+		return (0);
+	}
+	return (check_string(s, (start + 1), (end - 1)));
+}
+
+
+/**
+ * is_palindrome - Prototype function to check if string is empty
  *
  * @s: variable for string inputs
  *
- * Return: returns 1 if empty else returns 0
+ * Return: after function tests, returns 1 if empty else returns 0
  */
+
 
 int is_palindrome(char *s)
 {
-	int i, n;
 	int len = _strlen(s);
 
-	for (i = 0, n = len - 1; i < n; i++, n--)
-	{
-		if (s[i] != s[n])
-		{
-			return (0);
-		}
-	}
-	return (1);
+	return (check_string(s, 0, (len - 1)));
 }
 
 
@@ -37,11 +56,9 @@ int is_palindrome(char *s)
 
 int _strlen(char *s)
 {
-	int len = 0;
-
-	while (s[len] != '\0')
+	if (*s == '\0')
 	{
-		len++;
+		return (0);
 	}
-	return (len);
+	return (1 + (_strlen(s + 1)));
 }
