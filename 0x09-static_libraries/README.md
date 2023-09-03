@@ -40,3 +40,12 @@ char *_strstr(char *haystack, char *needle);
 If you haven’t coded all of the above functions create empty ones with the right prototype.
 
 File: libmy.a, main.h
+
+
+
+1. Without libraries what have we? We have no past and no future
+
+#mandatory
+Create a script called create_static_lib.sh that creates a static library called liball.a from all the .c files that are in the current directory.
+
+File: create_static_lib.sh
