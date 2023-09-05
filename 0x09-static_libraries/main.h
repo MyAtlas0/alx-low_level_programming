@@ -1,10 +1,10 @@
 #ifndef MAIN_H
 #define MAIN_H
 #include <stdio.h>
+#include <stddef.h>
 
-/** Prototype Function, its declaration **/
+/** prototype function, its declarations **/
 
-void _puts(char *str);
 void _puts(char *s);
 
 int _putchar(char c);
@@ -30,5 +30,4 @@ char *_strpbrk(char *s, char *accept);
 char *_strstr(char *haystack, char *needle);
 
 #endif
-
 /** MAIN_H **/
