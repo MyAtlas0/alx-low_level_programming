@@ -1,7 +1,48 @@
 		0x00-hello_world README file
 
-TASKS
+last updated: 28/08/23;
+Contributors: MyAtlas0;
 
+Requirement:
+
+BETTY Linter
+To run the Betty linter just with command betty <filename>:
+
+	-Go to the Betty repository
+	-Clone the repo to your local machine
+	-cd into the Betty directory
+	-Install the linter with sudo ./install.sh
+	-emacs or vi a new file called betty, and copy the script below:
+
+
+//#!/bin/bash
+//# Simply a wrapper script to keep you from having to use betty-style
+//# and betty-doc separately on every item.
+//# Originally by Tim Britton (@wintermanc3r), multiargument added by
+//# Larry Madeo (@hillmonkey)
+//
+//BIN_PATH="/usr/local/bin"
+//BETTY_STYLE="betty-style"
+//BETTY_DOC="betty-doc"
+//
+//if [ "$#" = "0" ]; then
+//	echo "No arguments passed."
+//	exit 1
+//fi
+//
+//for argument in "$@" ; do
+//	echo -e "\n========== $argument =========="
+//	${BIN_PATH}/${BETTY_STYLE} "$argument"
+//	${BIN_PATH}/${BETTY_DOC} "$argument"
+//done
+
+	-Once saved, exit file and change permissions to apply to all users with chmod a+x betty
+	-Move the betty file into /bin/ directory or somewhere else in your $PATH with sudo mv betty /bin/
+You can now type betty <filename> to run the Betty linter!
+
+
+
+TASKS
 
 0. Preprocessor
 
@@ -10,7 +51,6 @@ Write a script that runs a C file through the preprocessor and save the result i
 
 The C file name will be saved in the variable $CFILE
 The output should be saved in the file c
-
 
 1. Compiler
 
@@ -21,7 +61,6 @@ The C file name will be saved in the variable $CFILE
 The output file should be named the same as the C file, but with the extension .o instead of .c.
 Example: if the C file is main.c, the output file should be main.o
 
-
 2. Assembler
 
 mandatory
@@ -31,14 +70,12 @@ The C file name will be saved in the variable $CFILE
 The output file should be named the same as the C file, but with the extension .s instead of .c.
 Example: if the C file is main.c, the output file should be main.s
 
-
 3. Name
 
 mandatory
 Write a script that compiles a C file and creates an executable named cisfun.
 
 The C file name will be saved in the variable $CFILE
-
 
 4. Hello, puts
 
@@ -49,7 +86,6 @@ Use the function puts
 You are not allowed to use printf
 Your program should end with the value 0
 
-
 5. Hello, printf
 
 mandatory
@@ -59,7 +95,6 @@ Use the function printf
 You are not allowed to use the function puts
 Your program should return 0
 Your program should compile without warning when using the -Wall gcc option
-
 
 6. Size is not grandeur, and territory does not make a nation
 
