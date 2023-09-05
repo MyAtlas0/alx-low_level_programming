@@ -15,20 +15,20 @@
 
 int main(int argc, char *argv[])
 {
-	int coin = 0;
-	int cent = atoi(argv[1]);
+	int coin, cent;
 
 	if (argc != 2)
 	{
 		printf("Error\n");
 		return (1);
 	}
+	cent = atoi(argv[1]);
 	if (cent < 0)
 	{
 		printf("0\n");
 		return (0);
 	}
-
+	coin = 0;
 	while (cent > 0)
 	{
 		if (cent >= 25)
