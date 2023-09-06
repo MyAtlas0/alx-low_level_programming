@@ -15,6 +15,7 @@ int main(int ac, char *av[])
 	s = argstostr(ac, av);
 	if (s == NULL)
 	{
+		printf("Failed\n");
 		return (1);
 	}
 	printf("%s", s);
