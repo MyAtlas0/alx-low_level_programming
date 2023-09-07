@@ -2,6 +2,7 @@
 #define MAIN_H
 #include <stdio.h>
 #include <stddef.h>
+#include <unistd.h>
 
 /** prototype function, its declarations **/
 
