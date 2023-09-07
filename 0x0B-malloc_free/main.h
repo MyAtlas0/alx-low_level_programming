@@ -7,6 +7,7 @@
 
 int _putchar(char c);
 int **alloc_grid(int width, int height);
+int count_words(char *str);
 
 char *create_array(unsigned int size, char c);
 char *_strdup(char *str);

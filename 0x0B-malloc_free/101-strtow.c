@@ -2,91 +2,89 @@
 #include <string.h>
 
 /**
+ * count_words - helper function of type int that counts the words in a string
  *
+ * @str: variable representing the string inputs
  *
- *
- *
- *
+ * Return: returns the number of words
  */
+
+char **strtow(char *str);
 
 int count_words(char *str)
 {
 	int i;
-	int length = 0;
+	int count = 0;
 	int in_word = 0;
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		if (str[i] == ' ')
+		if (str[i] != ' ')
 		{
-			if (in_word)
+			if (!in_word)
 			{
-				in_word = 0;
-				length++;
+				in_word = 1;
+				count++;
 			}
 		}
 		else
 		{
-			in_word = 1;
+			in_word = 0;
 		}
 	}
-	if (in_word)
-	{
-		length++;
-	}
-	return (length);
+	return (count);
 }
 
 /**
+ * strtow - prototype function on type chat that splits string into words
  *
+ * @str: variable representing string input
  *
- *
- *
- *
- *
- *
- *
+ * Return: returns a pointer to an array of strings
  */
 
 char **strtow(char *str)
 {
 	int i, n;
-	int num_words;
-	char *token, *delimiter;
+	int word_count;
+	char *token;
 	char **words;
 
 	if (str == NULL || *str == '\0')
 	{
 		return (NULL);
 	}
-	num_words = count_words(str);
-	words = malloc(sizeof(char) * num_words + 1);
 
+	word_count = count_words(str);
+	if (word_count == 0)
+	{
+		return (NULL);
+	}
+
+	words = (char **)malloc(sizeof(char) * word_count + 1);
 	if (words == NULL)
 	{
 		return (NULL);
 	}
-	delimiter = " ";
-	n = 0;
-	token = strtok(str, delimiter);
 
+	i = 0;
+	token = strtok(str, " ");
 	while (token != NULL)
 	{
-		words[n] = malloc(sizeof(char) * (strlen(token) + 1));
-		if (words[n] == NULL)
+		words[i] = strdup(token);
+		if (words[i] == NULL)
 		{
-			for (i = 0; i < n; i++)
+			for (n = 0; n < i; n++)
 			{
-				free(words[i]);
+				free(words[n]);
 			}
 			free(words);
 			return (NULL);
 		}
-		strcpy(words[n], token);
-		n++;
+		i++;
+		token = strtok(NULL, " ");
 
-		token = strtok(NULL, delimiter);
 	}
-	words[n] = NULL;
+	words[i] = NULL;
 	return (words);
 }
