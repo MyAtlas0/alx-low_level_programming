@@ -1,5 +1,6 @@
 #include "main.h"
 #include <string.h>
+#include <stdlib.h>
 
 /**
  * count_words - helper function of type int that counts the words in a string
@@ -8,8 +9,6 @@
  *
  * Return: returns the number of words
  */
-
-char **strtow(char *str);
 
 int count_words(char *str)
 {
@@ -50,18 +49,13 @@ char **strtow(char *str)
 	char *token;
 	char **words;
 
-	if (str == NULL || *str == '\0')
-	{
-		return (NULL);
-	}
-
 	word_count = count_words(str);
-	if (word_count == 0)
+	if (str == NULL || *str == '\0' || word_count == 0)
 	{
 		return (NULL);
 	}
 
-	words = (char **)malloc(sizeof(char) * word_count + 1);
+	words = (char **)malloc(sizeof(char *) * (word_count + 1));
 	if (words == NULL)
 	{
 		return (NULL);
@@ -69,6 +63,7 @@ char **strtow(char *str)
 
 	i = 0;
 	token = strtok(str, " ");
+
 	while (token != NULL)
 	{
 		words[i] = strdup(token);
@@ -83,8 +78,8 @@ char **strtow(char *str)
 		}
 		i++;
 		token = strtok(NULL, " ");
-
 	}
 	words[i] = NULL;
+
 	return (words);
 }

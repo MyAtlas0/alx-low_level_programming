@@ -16,6 +16,7 @@ char *argstostr(int ac, char **av);
 char **strtow(char *str);
 
 void free_grid(int **grid, int height);
+void print_tab(char **tab);
 
 #endif
 /** MAIN_H **/

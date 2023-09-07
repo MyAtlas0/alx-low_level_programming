@@ -27,7 +27,6 @@ void print_tab(char **tab)
 
 int main(void)
 {
-	int i;
 	char **tab;
 
 	tab = strtow("      ALX School         #cisfun      ");
@@ -36,12 +35,6 @@ int main(void)
 		printf("Failed\n");
 		return (1);
 	}
-
 	print_tab(tab);
-	for (i = 0; tab[i] != NULL; i++)
-	{
-		free(tab[i]);
-	}
-	free(tab);
 	return (0);
 }
