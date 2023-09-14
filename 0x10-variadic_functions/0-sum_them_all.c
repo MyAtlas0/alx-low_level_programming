@@ -9,11 +9,11 @@
  *		integar argument from va_list to calculate its sum of intergar
  *		arguments
  *
- * @n: Variable specifying the number of arguments
+ * @n: variable specifying the number of arguments
  *
- * @...: Represents the integer arguments to be summed.
+ * @...: represents the integer arguments to be summed.
  *
- * Return: returns 0 if n == 0, otherwise um of integars
+ * Return: returns 0 if n == 0, otherwise sum of integars arguments
  */
 
 int sum_them_all(const unsigned int n, ...)
