@@ -1,6 +1,5 @@
 #include "variadic_functions.h"
 #include <stdarg.h>
-#include <stddef.h>
 
 /**
  * sum_them_all - prototype function that sums a number of integars
@@ -26,7 +25,7 @@ int sum_them_all(const unsigned int n, ...)
 	{
 		return (0);
 	}
-	if (args == NULL)
+	if (args == 0)
 	{
 		return (0);
 	}
