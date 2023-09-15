@@ -3,17 +3,16 @@
 #include <stddef.h>
 
 /**
- * sum_them_all - prototype function that returns sum of parameters
+ * sum_them_all - prototype function that sums a number of integars
  *
- * Condition - checks if n is 0,before iterating the loop to checks each
- *		integar argument from va_list to calculate its sum of intergar
- *		arguments
+ * condition - checks if n, before iterating the loop to checks each
+ *		integar argument from va_list to calculate sum variables
  *
- * @n: variable specifying the number of arguments
+ * @n: variable specifying the number of arguments.
  *
- * @...: represents the integer arguments to be summed.
+ * @...: The integer arguments to be summed.
  *
- * Return: returns 0 if n == 0, otherwise sum of integars arguments
+ * Return: The sum of the integer arguments, or 0 if n is 0.
  */
 
 int sum_them_all(const unsigned int n, ...)
