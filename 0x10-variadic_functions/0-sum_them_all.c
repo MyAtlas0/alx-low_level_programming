@@ -9,8 +9,6 @@
  *
  * @n: variable specifying the number of arguments.
  *
- * @...: The integer arguments to be summed.
- *
  * Return: The sum of the integer arguments, or 0 if n is 0.
  */
 
