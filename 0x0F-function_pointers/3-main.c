@@ -1,5 +1,4 @@
 #include "3-calc.h"
-#include <stdio.h>
 #include <stdlib.h>
 
 /**
@@ -14,31 +13,31 @@
 
 int main(int argc, char *argv[])
 {
-	int num_1, num_2, calc;
-	char str;
+	int num_1 = 0, num_2 = 0, result = 0;
+	char s;
 
 	if (argc != 4)
 	{
 		printf("Error\n");
 		exit(98);
 	}
-	num_1 = atoi(argv[1]);
-	num_2 = atoi(argv[3]);
+
+	s = argv[2][0];
+	if (s != '+' && s != '-' && s != '*' && s != '/' && s != '%')
+	{
+		printf("Error\n");
+		exit(99);
+	}
 
 	if (argv[2][1] != '\0')
 	{
 		printf("Error\n");
 		exit(99);
 	}
+	num_1 = atoi(argv[1]);
+	num_2 = atoi(argv[3]);
+	result = (get_op_func(argv[2]))(num_1, num_2);
 
-	str = argv[2][0];
-	if (str != '+' && str != '-' && str != '*' && str != '/' && str != '%')
-	{
-		printf("Error\n");
-		exit(100);
-	}
-	calc = (get_op_func(argv[2]))(num_1, num_2);
-
-	printf("%d\n", calc);
+	printf("%d\n", result);
 	return (0);
 }
