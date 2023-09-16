@@ -13,8 +13,7 @@
 
 int main(int argc, char *argv[])
 {
-	int num_1 = 0, num_2 = 0, result = 0;
-	char s;
+	int (*calc_func)(int, int);
 
 	if (argc != 4)
 	{
@@ -22,22 +21,13 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
-	s = argv[2][0];
-	if (s != '+' && s != '-' && s != '*' && s != '/' && s != '%')
+	calc_func = get_op_func(argv[2]);
+	if (calc_func == NULL || argv[2][1] != '\0')
 	{
 		printf("Error\n");
 		exit(99);
 	}
 
-	if (argv[2][1] != '\0')
-	{
-		printf("Error\n");
-		exit(99);
-	}
-	num_1 = atoi(argv[1]);
-	num_2 = atoi(argv[3]);
-	result = (get_op_func(argv[2]))(num_1, num_2);
-
-	printf("%d\n", result);
+	printf("%d\n", calc_func(atoi(argv[1]), atoi(argv[3])));
 	return (0);
 }
