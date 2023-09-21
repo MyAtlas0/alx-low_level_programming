@@ -1,4 +1,4 @@
-#include "main.h"
+#include "list.h"
 
 /**
  * print_list - Function to print all elements of the list counts the nodes.

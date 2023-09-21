@@ -1,4 +1,4 @@
-#include "main.h"
+#include "list.h"
 
 /**
  * main - check the code
