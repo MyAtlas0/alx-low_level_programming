@@ -1,89 +1,5 @@
 #include <elf.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-
-void check_elf(unsigned char *e_ident);
-void print_magic(unsigned char *e_ident);
-void print_class(unsigned char *e_ident);
-void print_data(unsigned char *e_ident);
-void print_version(unsigned char *e_ident);
-void print_abi(unsigned char *e_ident);
-void print_osabi(unsigned char *e_ident);
-void print_type(unsigned int e_type, unsigned char *e_ident);
-void print_entry(unsigned long int e_entry, unsigned char *e_ident);
-void close_elf(int elf);
-
-/**
- * main - Display information from the ELF header of a file.
- *
- * @argc: The number of arguments provided to the program.
- *
- * @argv: An array of variables for the arguments.
- *
- * Return: 0 if successful.
- *
- * Description: If the file is not an ELF file or on error,
- *		exit with status code 98, and display a comprehensive
- *		error message to stderr.
- */
-
-int main(int argc, char *argv[])
-{
-	Elf64_Ehdr *header;
-	int fd, r;
-
-	if (argc != 2)
-	{
-		dprintf(STDERR_FILENO, "Usage: %s elf_filename\n", argv[0]);
-		exit(98);
-	}
-	fd = open(argv[1], O_RDONLY);
-	if (fd == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read file %s\n", argv[1]);
-		exit(98);
-	}
-
-	header = malloc(sizeof(Elf64_Ehdr));
-	if (header == NULL)
-	{
-		close(fd);
-		dprintf(STDERR_FILENO, "Error: Memory allocation failure\n");
-		exit(98);
-	}
-
-	r = read(fd, header, sizeof(Elf64_Ehdr));
-	if (r == -1)
-	{
-		free(header);
-		close(fd);
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-		exit(98);
-	}
-
-	check_elf(header->e_ident);
-
-	printf("ELF Header:\n");
-	print_magic(header->e_ident);
-	print_class(header->e_ident);
-	print_data(header->e_ident);
-	print_version(header->e_ident);
-	print_osabi(header->e_ident);
-	print_abi(header->e_ident);
-	print_type(header->e_type, header->e_ident);
-	print_entry(header->e_entry, header->e_ident);
-
-	free(header);
-	close(fd);
-
-	return (0);
-}
-
-
+#include "main.h"
 
 /**
  * check_elf - Check if a file is an ELF file.
@@ -147,6 +63,7 @@ void print_magic(unsigned char *e_ident)
  *
  * @e_ident: An array containing the ELF class.
  */
+
 void print_class(unsigned char *e_ident)
 {
 	printf(" Class: ");
@@ -370,3 +287,70 @@ void close_elf(int elf)
 	}
 }
 
+
+
+/**
+ * main - Display information from the ELF header of a file.
+ *
+ * @argc: The number of arguments provided to the program.
+ *
+ * @argv: An array of variables for the arguments.
+ *
+ * Return: 0 if successful.
+ *
+ * Description: If the file is not an ELF file or on error,
+ *              exit with status code 98, and display a comprehensive
+ *              error message to stderr.
+ */
+
+int main(int argc, char *argv[])
+{
+	Elf64_Ehdr *header;
+	int fd, r;
+
+	if (argc != 2)
+	{
+		dprintf(STDERR_FILENO, "Usage: %s elf_filename\n", argv[0]);
+		exit(98);
+	}
+	fd = open(argv[1], O_RDONLY);
+	if (fd == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read file %s\n", argv[1]);
+		exit(98);
+	}
+
+	header = malloc(sizeof(Elf64_Ehdr));
+	if (header == NULL)
+	{
+		close(fd);
+		dprintf(STDERR_FILENO, "Error: Memory allocation failure\n");
+		exit(98);
+	}
+
+	r = read(fd, header, sizeof(Elf64_Ehdr));
+	if (r == -1)
+	{
+		free(header);
+		close(fd);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
+	}
+
+	check_elf(header->e_ident);
+
+	printf("ELF Header:\n");
+	print_magic(header->e_ident);
+	print_class(header->e_ident);
+	print_data(header->e_ident);
+	print_version(header->e_ident);
+	print_osabi(header->e_ident);
+	print_abi(header->e_ident);
+	print_type(header->e_type, header->e_ident);
+	print_entry(header->e_entry, header->e_ident);
+
+	free(header);
+	close(fd);
+
+	return (0);
+}
