@@ -1,4 +1,6 @@
 #include <elf.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 #include "main.h"
 
 /**
@@ -273,7 +275,7 @@ void print_entry(unsigned long int e_entry, unsigned char *e_ident)
 /**
  * close_elf - Close an ELF file.
  *
- * @elf: The file descriptor
+ * @elf: The file decriptor of the ELF file.
  *
  * Description: If the file cannot be closed, then exit with status code 98.
  */
@@ -303,23 +305,17 @@ void close_elf(int elf)
  *              error message to stderr.
  */
 
-int main(int argc, char *argv[])
+int main(int __attribute__((__unused__)) argc, char *argv[])
 {
 	Elf64_Ehdr *header;
 	int fd, r;
 
-	if (argc != 2)
-	{
-		dprintf(STDERR_FILENO, "Usage: %s elf_filename\n", argv[0]);
-		exit(98);
-	}
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read file %s\n", argv[1]);
 		exit(98);
 	}
-
 	header = malloc(sizeof(Elf64_Ehdr));
 	if (header == NULL)
 	{
@@ -327,7 +323,6 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Error: Memory allocation failure\n");
 		exit(98);
 	}
-
 	r = read(fd, header, sizeof(Elf64_Ehdr));
 	if (r == -1)
 	{
@@ -348,9 +343,7 @@ int main(int argc, char *argv[])
 	print_abi(header->e_ident);
 	print_type(header->e_type, header->e_ident);
 	print_entry(header->e_entry, header->e_ident);
-
 	free(header);
 	close(fd);
-
 	return (0);
 }
