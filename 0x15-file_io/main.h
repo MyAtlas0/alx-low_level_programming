@@ -14,6 +14,4 @@ int append_text_to_file(const char *filename, char *text_content);
 int main(int argc, char *argv[]);
 ssize_t read_textfile(const char *filename, size_t letters);
 
-void error_file(int file_from, int file_to, char *argv[]);
-
 #endif /** MAIN_H **/
