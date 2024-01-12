@@ -59,3 +59,68 @@ Prototype: dlistint_t *add_dnodeint_end(dlistint_t **head, const int n);
 Return: the address of the new element, or NULL if it failed
 
 # Filename: 3-add_dnodeint_end.c
+
+
+
+
+
+4. Free list
+#mandatory
+
+Write a function that frees a dlistint_t list.
+
+Prototype: void free_dlistint(dlistint_t *head);
+
+# Filename: 4-free_dlistint.c
+
+
+
+
+
+5. Get node at index
+#mandatory
+
+Write a function that returns the nth node of a dlistint_t linked list.
+
+Prototype: dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index);
+where index is the index of the node, starting from 0
+if the node does not exist, return NULL
+
+# Filename: 5-get_dnodeint.c
+
+
+
+
+
+6. Sum list
+#mandatory
+
+Write a function that returns the sum of all the data (n) of a dlistint_t linked list.
+
+Prototype: int sum_dlistint(dlistint_t *head);
+if the list is empty, return 0
+
+# Filename: 6-sum_dlistint.c
+
+
+
+
+
+7. Insert at index
+#mandatory
+
+Write a function that inserts a new node at a given position.
+
+Prototype: dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n);
+where idx is the index of the list where the new node should be added. Index starts at 0
+Returns: the address of the new node, or NULL if it failed
+if it is not possible to add the new node at index idx, do not add the new node and return NULL
+Your files 2-add_dnodeint.c and 3-add_dnodeint_end.c will be compiled during the correction
+
+# Filenames: 7-insert_dnodeint.c, 2-add_dnodeint.c, 3-add_dnodeint_end.c
+
+
+
+
+
+
