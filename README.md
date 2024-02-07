@@ -75,4 +75,4 @@ Lists of directories currently under the (alx-low_level_programming) REPO:
 0x18-dynamic_libraries
 
 
-0-hash_table_create.c
+0x1A-hash_tables
