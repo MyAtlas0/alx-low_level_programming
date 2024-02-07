@@ -1,6 +1,6 @@
 		_ alx-low_level_programming README file _
 
-last updated: 12/10/24;
+last updated: 07/02/24;
 Contributors: MyAtlas0;
 
 
@@ -70,3 +70,9 @@ Lists of directories currently under the (alx-low_level_programming) REPO:
 
 
 0x17-doubly_linked_lists
+
+
+0x18-dynamic_libraries
+
+
+0-hash_table_create.c
