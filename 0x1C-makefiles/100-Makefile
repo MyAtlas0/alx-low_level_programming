@@ -1,5 +1,3 @@
-# Usage: make [all/clean/oclean/fclean] -f [file]
-
 CC = gcc
 SRC = main.c school.c
 OBJ = $(SRC:.c=.o)
@@ -24,4 +22,4 @@ oclean:
 fclean: oclean clean
 
 # forces recompilation of all source files
-re: fclean all
+re: oclean all
